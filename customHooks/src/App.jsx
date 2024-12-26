@@ -2,7 +2,7 @@ import useCounter from "./hooks/customCounter";
 import useTimer from "./hooks/customTimer";
 const App = () => {
     const { count, increment, decrement, updateCount } = useCounter({ initialValue: 0 });
-    const { time, start, pause } = useTimer({ initialTime: 1 })
+    const { time, start, pause, reset } = useTimer({ initialTime: 1 })
 
 
 
@@ -23,7 +23,7 @@ const App = () => {
                 <hr />
             </section>
 
-            <section>
+            <section className="counter-container">
                 <h2>Segundo EJERCICIO</h2>
                 <small>Crear un temporizador personalizado</small>
                 <span>
@@ -32,6 +32,7 @@ const App = () => {
                 <br />
                 <button onClick={start}>Comenzar</button>
                 <button onClick={pause}>Pausar</button>
+                <button onClick={reset}>Reiniciar</button>
             </section>
 
         </div>
