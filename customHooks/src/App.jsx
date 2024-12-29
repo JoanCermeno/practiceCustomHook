@@ -1,8 +1,10 @@
 import useCounter from "./hooks/customCounter";
 import useTimer from "./hooks/customTimer";
+import CustomForm from "./components/customForm";
+
 const App = () => {
     const { count, increment, decrement, updateCount } = useCounter({ initialValue: 0 });
-    const { time, start, pause, reset } = useTimer({ initialTime: 1 })
+    const { time, isPaused, start, pauseAndResume, reset } = useTimer({ initialTime: 0 })
 
 
 
@@ -29,10 +31,22 @@ const App = () => {
                 <span>
                     {time}
                 </span>
-                <br />
-                <button onClick={start}>Comenzar</button>
-                <button onClick={pause}>Pausar</button>
-                <button onClick={reset}>Reiniciar</button>
+                <div style={{ display: "flex", gap: "1rem" }}>
+                    <button onClick={start}>Comenzar</button>
+                    <button onClick={pauseAndResume}>
+                        {isPaused ? "Reanudar" : "Pausar"}
+                    </button>
+                    <button onClick={reset}>Reiniciar</button>
+                </div>
+
+            </section>
+
+            <hr />
+
+            <section>
+                <h2>Ejercicio 3: Vaidar formularios</h2>
+                <small>Crear un formulario personalizado</small>
+                <CustomForm />
             </section>
 
         </div>
